@@ -214,6 +214,9 @@ function configure_quantum() {
     fi
     if is_service_enabled q-l3; then
         _configure_quantum_l3_agent
+        # set default router-id
+        _set_router_id
+
     fi
     if is_service_enabled q-meta; then
         _configure_quantum_metadata_agent
@@ -241,6 +244,9 @@ function create_nova_conf_quantum() {
 
     iniset $NOVA_CONF DEFAULT libvirt_vif_driver "$NOVA_VIF_DRIVER"
     iniset $NOVA_CONF DEFAULT linuxnet_interface_driver "$LINUXNET_VIF_DRIVER"
+    # hyunsun enable metadata proxy anyway
+    iniset $NOVA_CONF DEFAULT service_quantum_metadata_proxy "True"
+
     if is_service_enabled q-meta; then
         iniset $NOVA_CONF DEFAULT service_quantum_metadata_proxy "True"
     fi
@@ -335,6 +341,15 @@ function create_quantum_initial_network() {
             fi
         fi
    fi
+}
+
+# hyunsun get pre-defined router id
+function _set_router_id() {
+    if is_service_enabled q-l3 && [[ "$Q_USE_NAMESPACE" == "False" ]]; then
+        source openrc admin admin
+        ROUTER_ID=$(quantum router-list | grep $Q_ROUTER_NAME | get_field 1)
+        iniset $Q_L3_CONF_FILE DEFAULT router_id $ROUTER_ID
+    fi  
 }
 
 # init_quantum() - Initialize databases, etc.
@@ -433,6 +448,10 @@ function _configure_quantum_common() {
 
     iniset /$Q_PLUGIN_CONF_FILE DATABASE sql_connection `database_connection_url $Q_DB_NAME`
     iniset $QUANTUM_CONF DEFAULT state_path $DATA_DIR/quantum
+    # hyunsun enable debug
+    iniset $QUANTUM_CONF DEFAULT debug True
+    # hyunsun add network_scheduler_driver
+    iniset $QUANTUM_CONF DEFAULT network_scheduler_driver quantum.scheduler.dhcp_agent_scheduler.ChanceScheduler
 
     # If addition config files are set, make sure their path name is set as well
     if [[ ${#Q_PLUGIN_EXTRA_CONF_FILES[@]} > 0 && $Q_PLUGIN_EXTRA_CONF_PATH == '' ]]; then

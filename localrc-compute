@@ -1,0 +1,31 @@
+# Hosts
+HOST_IP=192.168.0.101
+SERVICE_HOST=192.168.0.104
+RABBIT_HOST=192.168.0.104
+DATABASE_HOST=192.168.0.104
+Q_HOST=192.168.0.104
+
+# Database
+DATABASE_USER=root
+DATABASE_PASSWORD=nova
+DATABASE_TYPE=mysql
+
+# Password
+RABBIT_PASSWORD=nova
+ADMIN_PASSWORD=nova
+SERVICE_PASSWORD=nova
+SERVICE_TOKEN=nova
+
+# Services
+ENABLED_SERVICES=q-agt,quantum,n-cpu,nova
+
+# Log
+SCREEN_LOGDIR=/opt/stack/logs/screen
+
+# Nova
+VNCSERVER_LISTEN=0.0.0.0
+
+
+# Networks
+Q_PLUGIN=linuxbridge
+LB_INTERFACE_MAPPINGS=private-net-01:eth1

@@ -430,6 +430,8 @@ function create_nova_conf() {
     iniset $NOVA_CONF DEFAULT osapi_compute_extension "nova.api.openstack.compute.contrib.standard_extensions"
     iniset $NOVA_CONF DEFAULT my_ip "$HOST_IP"
     iniset $NOVA_CONF DEFAULT sql_connection `database_connection_url nova`
+    # hyunsun default-private-net
+    iniset $NOVA_CONF DEFAULT quantum_default_private_network "private-net-01"
     if is_baremetal; then
         iniset $NOVA_CONF baremetal sql_connection `database_connection_url nova_bm`
     fi
