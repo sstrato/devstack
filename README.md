@@ -11,8 +11,8 @@ DevStack NG model Implementation
 
 NG patch
 
-7. # cp db_base_plugin_v2.py /opt/stack/quantum/quantum/db/db_base_plugin_v2.py
-8. # cp api.py /opt/stack/nova/nova/network/quantumv2/api.py
+7. # cp db_base_plugin_v2.py /opt/stack/quantum/quantum/db/db_base_plugin_v2.py on controller
+8. # cp api.py /opt/stack/nova/nova/network/quantumv2/api.py on controller, compute
 9. re-run 4 ~ 6
 
 diable br-nf on network node, compute node
