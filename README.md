@@ -10,6 +10,7 @@ DevStack NG model Implementation
 6. run stack.sh on network node, compute node 
 
 NG patch
+
 7. # cp db_base_plugin_v2.py /opt/stack/quantum/quantum/db/db_base_plugin_v2.py
 8. # cp api.py /opt/stack/nova/nova/network/quantumv2/api.py
 9. re-run 4 ~ 6
