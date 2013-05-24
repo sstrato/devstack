@@ -15,7 +15,7 @@ NG patch
 8. # cp api.py /opt/stack/nova/nova/network/quantumv2/api.py on controller, compute
 9. re-run 4 ~ 6
 
-diable br-nf on network node, compute node
+diable br-nf on network node
 
 1. # echo 0 > /proc/sys/net/bridge/bridge-nf-call-iptables
 2. # echo 0 > /proc/sys/net/bridge/bridge-nf-call-arptables
