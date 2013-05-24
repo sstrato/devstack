@@ -6,7 +6,7 @@ DevStack NG model Implementation
 2. change localrc-controller, localrc-network, localrc-compute to "localrc" accordingly
 3. open localrc and change host IP addresses properly
 4. run stack.sh on controller node first
-5. after controller done, run post-script.sh on conroller
+5. after controller done, run post-script.sh on conroller (change IP addresses in pos-scrip.sh before run)
 6. run stack.sh on network node, compute node 
 
 NG patch
