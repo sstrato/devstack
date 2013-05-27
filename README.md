@@ -19,3 +19,11 @@ diable br-nf on network node
 
 1. # echo 0 > /proc/sys/net/bridge/bridge-nf-call-iptables
 2. # echo 0 > /proc/sys/net/bridge/bridge-nf-call-arptables
+
+To keep this configurations after reboot,
+
+1. add "bridge" to /etc/modules
+2. add the following to /etc/sysctl.conf
+
+net.bridge.bridge-nf-call-iptables=0
+net.bridge.bridge-nf-call-arptables=0
