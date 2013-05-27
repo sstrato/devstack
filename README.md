@@ -11,19 +11,20 @@ DevStack NG model Implementation
 
 NG patch
 
-7. # cp db_base_plugin_v2.py /opt/stack/quantum/quantum/db/db_base_plugin_v2.py on controller
-8. # cp api.py /opt/stack/nova/nova/network/quantumv2/api.py on controller, compute
-9. re-run 4 ~ 6
+  # cp db_base_plugin_v2.py /opt/stack/quantum/quantum/db/db_base_plugin_v2.py on controller
+  # cp api.py /opt/stack/nova/nova/network/quantumv2/api.py on controller, compute
 
-diable br-nf on network node
+7. re-run 4 ~ 6
 
-1. # echo 0 > /proc/sys/net/bridge/bridge-nf-call-iptables
-2. # echo 0 > /proc/sys/net/bridge/bridge-nf-call-arptables
+8. diable br-nf on network node
 
-To keep this configurations after reboot,
+  # echo 0 > /proc/sys/net/bridge/bridge-nf-call-iptables
+  # echo 0 > /proc/sys/net/bridge/bridge-nf-call-arptables
+
+9. To keep this configurations after reboot,
 
 1. add "bridge" to /etc/modules
 2. add the following to /etc/sysctl.conf
 
-net.bridge.bridge-nf-call-iptables=0
-net.bridge.bridge-nf-call-arptables=0
+  net.bridge.bridge-nf-call-iptables=0
+  net.bridge.bridge-nf-call-arptables=0
