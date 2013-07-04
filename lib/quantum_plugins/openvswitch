@@ -55,6 +55,10 @@ function quantum_plugin_configure_plugin_agent() {
         fi
         iniset /$Q_PLUGIN_CONF_FILE OVS enable_tunneling True
         iniset /$Q_PLUGIN_CONF_FILE OVS local_ip $HOST_IP
+        # hyunsun add tunneling config
+        iniset /$Q_PLUGIN_CONF_FILE OVS tenant_network_type gre 
+        iniset /$Q_PLUGIN_CONF_FILE OVS tunnel_id_ranges $TENANT_TUNNEL_RANGES
+
     fi
 
     # Setup physical network bridge mappings.  Override
@@ -133,6 +137,9 @@ function quantum_plugin_configure_service() {
     if [[ $OVS_ENABLE_TUNNELING = "True" ]]; then
         iniset /$Q_PLUGIN_CONF_FILE OVS enable_tunneling True
     fi
+
+    # hyunsun 
+    _quantum_ovs_base_configure_firewall_driver
 }
 
 function quantum_plugin_setup_interface_driver() {

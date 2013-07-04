@@ -992,6 +992,7 @@ if is_service_enabled q-svc; then
     echo_summary "Starting Quantum"
 
     start_quantum_service_and_check
+    # hyunsun do not create initial network automatically
     #create_quantum_initial_network
     setup_quantum_debug
 elif is_service_enabled $DATABASE_BACKENDS && is_service_enabled n-net; then

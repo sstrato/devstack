@@ -74,8 +74,8 @@ CINDERCLIENT_REPO=${CINDERCLIENT_REPO:-${GIT_BASE}/openstack/python-cinderclient
 CINDERCLIENT_BRANCH=${CINDERCLIENT_BRANCH:-master}
 
 # compute service
-NOVA_REPO=${NOVA_REPO:-${GIT_BASE}/openstack/nova.git}
-NOVA_BRANCH=${NOVA_BRANCH:-stable/grizzly}
+NOVA_REPO=${NOVA_REPO:-${GIT_BASE}/kt-cloudware/nova.git}
+NOVA_BRANCH=${NOVA_BRANCH:-develop}
 
 # storage service
 SWIFT_REPO=${SWIFT_REPO:-${GIT_BASE}/openstack/swift.git}
@@ -124,8 +124,8 @@ KEYSTONECLIENT_REPO=${KEYSTONECLIENT_REPO:-${GIT_BASE}/openstack/python-keystone
 KEYSTONECLIENT_BRANCH=${KEYSTONECLIENT_BRANCH:-master}
 
 # quantum service
-QUANTUM_REPO=${QUANTUM_REPO:-${GIT_BASE}/openstack/quantum.git}
-QUANTUM_BRANCH=${QUANTUM_BRANCH:-stable/grizzly}
+QUANTUM_REPO=${QUANTUM_REPO:-${GIT_BASE}/kt-cloudware/quantum.git}
+QUANTUM_BRANCH=${QUANTUM_BRANCH:-develop}
 
 # quantum client
 QUANTUMCLIENT_REPO=${QUANTUMCLIENT_REPO:-${GIT_BASE}/openstack/python-quantumclient.git}
