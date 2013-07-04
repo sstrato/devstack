@@ -244,6 +244,8 @@ function create_nova_conf_quantum() {
     if is_service_enabled q-meta; then
         iniset $NOVA_CONF DEFAULT service_quantum_metadata_proxy "True"
     fi
+ 
+    iniset $NOVA_CONF DEFAULT service_quantum_metadata_proxy "True"
 }
 
 # create_quantum_accounts() - Set up common required quantum accounts
