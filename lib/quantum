@@ -503,6 +503,8 @@ function _configure_quantum_dhcp_agent() {
     iniset $Q_DHCP_CONF_FILE DEFAULT debug True
     iniset $Q_DHCP_CONF_FILE DEFAULT use_namespaces $Q_USE_NAMESPACE
     iniset $Q_DHCP_CONF_FILE DEFAULT root_helper "$Q_RR_COMMAND"
+    # hyunsun add multi-host config
+    iniset $Q_DHCP_CONF_FILE DEFAULT enable_multi_host $Q_ENABLE_MULTI_HOST
 
     _quantum_setup_keystone $Q_DHCP_CONF_FILE DEFAULT set_auth_url
     _quantum_setup_interface_driver $Q_DHCP_CONF_FILE
@@ -524,6 +526,8 @@ function _configure_quantum_l3_agent() {
     iniset $Q_L3_CONF_FILE DEFAULT debug True
     iniset $Q_L3_CONF_FILE DEFAULT use_namespaces $Q_USE_NAMESPACE
     iniset $Q_L3_CONF_FILE DEFAULT root_helper "$Q_RR_COMMAND"
+    # hyunsun add multi-host config
+    iniset $Q_L3_CONF_FILE DEFAULT enable_multi_host $Q_ENABLE_MULTI_HOST
 
     _quantum_setup_keystone $Q_L3_CONF_FILE DEFAULT set_auth_url
     _quantum_setup_interface_driver $Q_L3_CONF_FILE
