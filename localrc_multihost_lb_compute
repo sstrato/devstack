@@ -1,0 +1,39 @@
+# Hosts
+HOST_IP=10.1.2.3
+SERVICE_HOST=10.1.2.2
+RABBIT_HOST=10.1.2.2
+DATABASE_HOST=10.1.2.2
+Q_HOST=10.1.2.2
+
+# Database
+DATABASE_USER=root
+DATABASE_PASSWORD=nova
+DATABASE_TYPE=mysql
+
+# Password
+RABBIT_PASSWORD=nova
+ADMIN_PASSWORD=nova
+SERVICE_PASSWORD=nova
+SERVICE_TOKEN=nova
+
+# Services
+ENABLED_SERVICES=q-agt,q-dhcp,q-l3,q-meta,quantum,n-cpu,nova
+
+# Log
+SCREEN_LOGDIR=/opt/stack/logs/screen
+
+# Nova
+VNCSERVER_LISTEN=0.0.0.0
+
+
+# Networks
+#Q_PLUGIN=linuxbridge
+#LB_INTERFACE_MAPPINGS=private-net-01:eth1
+Q_PLUGIN=linuxbridge
+LB_INTERFACE_MAPPINGS=multihost-net-01:eth1
+Q_ENABLE_MULTI_HOST=True
+Q_USE_SECGROUP=True
+Q_USE_NAMESPACE=False
+Q_ROUTER_NAME=multihost-router-01
+Q_META_DATA_IP=10.1.2.2
+Q_QUANTUM_DEFAULT_NET=multihost-net-01
