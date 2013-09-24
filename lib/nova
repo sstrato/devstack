@@ -431,7 +431,8 @@ function create_nova_conf() {
     iniset $NOVA_CONF DEFAULT my_ip "$HOST_IP"
     iniset $NOVA_CONF DEFAULT sql_connection `database_connection_url nova`
     # hyunsun default-private-net
-    iniset $NOVA_CONF DEFAULT quantum_default_private_network $Q_DEFAULT_PRIVATE_NET
+    #iniset $NOVA_CONF DEFAULT quantum_default_private_network $Q_DEFAULT_PRIVATE_NET
+    iniset $NOVA_CONF DEFAULT pre_defined_network $Q_PRE_DEFINED_NETWORK
     if is_baremetal; then
         iniset $NOVA_CONF baremetal sql_connection `database_connection_url nova_bm`
     fi

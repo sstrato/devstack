@@ -1,0 +1,31 @@
+# Hosts
+HOST_IP=10.1.2.2
+
+# Database
+DATABASE_USER=root
+DATABASE_PASSWORD=nova
+DATABASE_TYPE=mysql
+
+# Password
+RABBIT_PASSWORD=nova
+ADMIN_PASSWORD=nova
+SERVICE_PASSWORD=nova
+SERVICE_TOKEN=nova
+
+# Services
+ENABLED_SERVICES=q-svc,quantum,g-api,g-reg,key,n-api,n-crt,n-cond,cinder,c-sch,c-api,c-vol,n-sch,n-novnc,n-xvnc,n-cauth,horizon,rabbit,tempest,mysql
+# Log
+SCREEN_LOGDIR=/opt/stack/logs/screen
+
+# Nova
+VNCSERVER_LISTEN=0.0.0.0
+
+# Images
+IMAGE_URLS="http://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-uec.tar.gz","http://uec-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64.tar.gz"
+#  
+# Networks
+Q_PLUGIN=linuxbridge
+PHYSICAL_NETWORK=multihost-net-01
+Q_PRE_DEFINED_NETWORK=multihost-net-01
+Q_ENABLE_MULTI_HOST=True
+Q_USE_SECGROUP=True
